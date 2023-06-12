@@ -1,0 +1,96 @@
+.general {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.main-background {
+    background: linear-gradient(0deg, rgb(173, 182, 248), 35%, rgba(12, 94, 227, 0.982));
+}
+
+.special-background {
+    background: linear-gradient(white, Black, Gray, LightGray, Brown, Pink, Red, Orange, Yellow, LimeGreen, Green, LightBlue, Cyan, Blue, Magenta, Purple) !important;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 80%;
+}
+
+
+.header-area-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 1% 2%;
+    justify-items: center;
+    height: 25%;
+}
+
+.game-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.self {
+    justify-self: flex-start;
+}
+
+.opponent {
+    justify-self: flex-end;
+}
+
+.footer-area-container {
+    display: flex;
+    gap: 400px;
+    flex-direction: row;
+    padding: 1% 2%;
+    min-height: 60px;
+}
+
+.play-area-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.clues {
+    display: flex;
+    justify-content: center;
+}
+
+.replay {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    border-radius: 25px;
+    border: 2px solid #000000;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.628);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn:hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.unclickable {
+    pointer-events: none;
+}
+
+.chatbox-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 20%;
+    border-left: 2px dashed aqua;
+}

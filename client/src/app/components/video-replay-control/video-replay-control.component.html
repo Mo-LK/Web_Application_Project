@@ -1,0 +1,18 @@
+<div class="replay-container">
+    <div class="button-container">
+        <button mat-raised-button class="btn" (click)='this.stop()'>Quitter</button>
+        <button mat-raised-button class="btn" (click)='this.play()' [ngClass]="{'current': isPlaying}" title="Jouer"><mat-icon>play_arrow</mat-icon></button>
+        <button mat-raised-button class="btn" (click)='this.pause()' [ngClass]="{'current': isPaused}" title="Pause"><mat-icon>pause</mat-icon></button>
+        <button mat-raised-button class="btn" (click)='this.restart()' title="Rejouer"><mat-icon>replay</mat-icon></button>
+    </div>
+    <div class="speed-container" role="group" title="Vitesse de lecture">
+        <input #firstSpeedSelector type="radio" class="radio-button" id="1X" name="selection" (change)="this.setSpeed(1)" checked>
+        <label for="1X" class="speeds">1X</label>
+
+        <input type="radio" class="radio-button" id="2X" name="selection" (change)="this.setSpeed(2)">
+        <label for="2X" class="speeds">2X</label>
+
+        <input type="radio" class="radio-button" id="4X" name="selection" (change)="this.setSpeed(4)">
+        <label for="4X" class="speeds">4X</label>
+    </div>
+</div>

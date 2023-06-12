@@ -1,0 +1,134 @@
+.chat-container {
+    height: inherit;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 5px 35px 5px rgba(0, 0, 0, 0.492);
+    display: contents;
+}
+  
+.chat-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    color: white;
+    font-size: large;
+    border-bottom: 2px dashed aqua;
+    font-size: 20px;
+    font-weight: bold;
+}
+  
+.chat-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    background-color: #f2f2f2;
+}
+  
+.message-input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.sending {
+    padding-left: 5px;
+    display: flex;
+    flex-direction: column;
+}
+  
+.send-btn {
+    cursor: pointer;
+    border: none;
+    color:#4c84af;
+    width: 35px;
+    display: contents;
+    justify-content: end;
+}
+
+.disabled {
+    color:#4c84af5f;
+    cursor: not-allowed;
+}
+
+.counter {
+    color: black;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.chat-box-body {
+    position: relative;
+    overflow: hidden;
+    background-color: rgb(104 58 181 / 44%);
+    height: 100%;
+}
+
+.chat-logs {
+    padding: 15px;
+    height: 96.6%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.chat-logs::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.chat-logs::-webkit-scrollbar
+{
+    width: 8px;
+}
+
+.chat-logs::-webkit-scrollbar-thumb
+{
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.chat-bubble {
+    display: flex;
+}
+
+.chat-bubble.self {
+    justify-content: flex-end;
+}
+
+.chat-bubble.opponent {
+    justify-content: flex-start;
+}
+
+.chat-bubble.system {
+    justify-content: center;
+}
+
+.chat {
+    background:white;
+    padding:5px 10px 5px 10px;
+    color:#666;
+    max-width:75%;
+    position:relative;
+    margin-bottom:5px;
+    border-radius:15px;
+    word-wrap:break-word;
+}
+
+.chat-bubble.self > .chat {
+    background: #5A5EB9;
+    color:white;
+}
+
+.chat-bubble.system > .chat {
+    background: none;
+    color:pink;
+}
+
+.chat-bubble.global > .chat {
+    background: none;
+    color: rgba(112, 241, 86, 0.918);
+}
+

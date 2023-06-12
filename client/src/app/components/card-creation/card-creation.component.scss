@@ -1,0 +1,77 @@
+.canva-container {
+    position: absolute;
+    border-width: 10px;
+    width: 640px;
+    height: 480px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    height: 15%;
+    width: 50%;
+}
+
+.button {
+    border-radius: 25px;
+    border: 2px solid #000000;
+    width: 150px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 10px;
+    height: 80%;
+}
+
+p {
+    color: red;
+}
+
+.image-upload {
+    height: 100%;
+    width: 100px;
+}
+
+.file-upload {
+    height: 120%;
+    cursor: pointer;
+}
+
+.file-upload:active{
+    transform: scale(0.80);
+}
+
+.image-upload>input {
+    display: none;
+}
+
+.file-name {
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #777;
+}
+
+.upload-label-container{
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.628);
+    cursor: pointer;
+    transition: background 400ms cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid black;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 50px;
+    height: 35px;
+    margin-top: 10px;
+}
+
+.upload-label-container:hover{
+    background-color: white;
+}

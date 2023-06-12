@@ -1,0 +1,31 @@
+.join-container {
+    display: flex;
+    margin: 5px;
+    border: 2px solid black;
+    flex-flow: column;
+}
+
+.player-name {
+    font-size: 20px;
+    align-self: center;
+    min-width: 100px;
+    justify-content: center;
+    display: flex;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.accept:hover {
+    background-color: rgb(62, 250, 78);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.decline:hover {
+    background-color: rgb(250, 62, 62);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

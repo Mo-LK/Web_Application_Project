@@ -1,0 +1,6 @@
+<div mat-dialog-title class="title">Abandon de partie</div>
+<mat-dialog-content>Êtes-vous certain de vouloir abandonner la partie et retourner au menu principal?</mat-dialog-content>
+<mat-dialog-actions class="button-container">
+    <button mat-raised-button mat-dialog-close>Retour</button>
+    <button mat-raised-button mat-dialog-close (click)="this.gameService.abandonGame(true)">Confirmer</button>
+</mat-dialog-actions>

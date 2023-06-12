@@ -1,0 +1,6 @@
+<div mat-dialog-title class="title">Réinitialisation des classements</div>
+<mat-dialog-content>Êtes-vous certain de vouloir réinitialiser les classements de toutes les fiches de jeu?</mat-dialog-content>
+<mat-dialog-actions class="button-container">
+    <button mat-raised-button mat-dialog-close>Retour</button>
+    <button mat-raised-button mat-dialog-close (click)="this.cardChangeService.cardStatsReset()">Confirmer</button>
+</mat-dialog-actions>

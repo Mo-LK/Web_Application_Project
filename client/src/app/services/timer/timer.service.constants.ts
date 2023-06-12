@@ -1,0 +1,2 @@
+export const NUMERIC_FORMAT_THRESHOLD = 10;
+export const TIME_FORMAT_THRESHOLD = 60;

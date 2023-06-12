@@ -1,0 +1,39 @@
+<div class="toolbox-container">
+    <input *ngIf="this.activeTool !== functionErase" id="color" type="color" name="color" [(ngModel)]="selectedColor" (input)="onColorChanged()" title="Palette de couleurs">
+
+    <mat-form-field *ngIf="this.activeTool === functionDrawLine" appearance="fill" class="sizing-tool-container">
+        <mat-label>Taille crayon</mat-label>
+        <select matNativeControl [(ngModel)]="pencilSize" required (change)="onPencilSizeChanged()">
+            <option value="5">5 pixel</option>
+            <option value="10">10 pixels</option>
+            <option value="15">15 pixels</option>
+            <option value="20">20 pixels</option>
+        </select>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="this.activeTool === functionErase" appearance="fill" class="sizing-tool-container">
+        <mat-label>Taille efface</mat-label>
+        <select matNativeControl [(ngModel)]="eraserSize" required (change)="onEraserSizeChanged()">
+            <option value="5">5 pixel</option>
+            <option value="10">10 pixels</option>
+            <option value="30">30 pixels</option>
+            <option value="50">50 pixels</option>
+        </select>
+    </mat-form-field>
+
+    <div class="drawing-tools-container" role="group">
+        <input type="radio" id="line" name="tool-selection" (change)="onToolChanged(functionDrawLine)" checked>
+        <label for="line" class="drawing-tool" title="Crayon"><mat-icon>border_color</mat-icon></label>
+
+        <input type="radio" id="eraser" name="tool-selection" (change)="onToolChanged(functionErase)">
+        <label for="eraser" class="drawing-tool" title="Efface"><mat-icon><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m16.24 3.56l4.95 4.94c.78.79.78 2.05 0 2.84L12 20.53a4.008 4.008 0 0 1-5.66 0L2.81 17c-.78-.79-.78-2.05 0-2.84l10.6-10.6c.79-.78 2.05-.78 2.83 0M4.22 15.58l3.54 3.53c.78.79 2.04.79 2.83 0l3.53-3.53l-4.95-4.95l-4.95 4.95Z"/></svg></mat-icon></label>
+
+        <input type="radio" id="rectangle" name="tool-selection" (change)="onToolChanged(functionDrawRectangle)">
+        <label for="rectangle" class="drawing-tool" title="Rectangle"><mat-icon>crop_5_4</mat-icon></label>
+    </div>
+
+    <div class="version-history-container">
+        <button mat-raised-button class="undo-redo-buttons" (click)="this.drawingService.undoVerification()" title="Annuler" [disabled]="!(this.drawingService.drawHistoryService.lineHistoryCursor > 0 && this.drawingService.drawHistoryService.pathHistory.length > 0)"><mat-icon>undo</mat-icon></button>
+        <button mat-raised-button class="undo-redo-buttons" (click)="this.drawingService.redoVerification()" title="Refaire" [disabled]="!(this.drawingService.drawHistoryService.lineHistoryCursor + 1 < this.drawingService.drawHistoryService.pathHistory.length)"><mat-icon>redo</mat-icon></button>
+    </div>
+</div>

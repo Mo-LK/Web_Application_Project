@@ -1,0 +1,30 @@
+<div id="leaderboard-container">
+    <div id="ld-title">
+        <label>CLASSEMENT</label>
+    </div>
+    <div id="space-container" class="text">#0</div>
+    <div>
+        <label class="text">SOLO</label>
+    </div>
+    <div>
+        <label class="text">1 vs 1</label>
+    </div>
+    <div *ngIf="this.stats.classical.solo[0]" class="score-grid">
+        <div *ngFor="let i of [0, 1, 2]">
+            <div class="align-line record-{{ i + 1 }}">
+                <label class="text">#{{ i + 1}}</label>
+                <div>
+                    <label class="text name">{{ this.stats.classical.solo[i].name }}</label>
+                    <label class="text score">{{ this.formatTime(this.stats.classical.solo[i].score) }}</label>
+                </div>
+                <div>
+                    <label class="text name">{{ this.stats.classical.versus[i].name }}</label>
+                    <label class="text score">{{ this.formatTime(this.stats.classical.versus[i].score) }}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!this.stats.classical.solo[0]" class="score-grid">
+        <span> Erreur de connection avec la base de donnée </span>
+    </div>
+</div>

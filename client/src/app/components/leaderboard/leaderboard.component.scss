@@ -1,0 +1,70 @@
+#leaderboard-container {
+    border-radius: 10px;
+    border: solid black;
+    overflow: hidden;
+    display: grid;
+    grid-template-areas:
+        'ld-title ld-title ld-title'
+        'space solo 1vs1'
+        'scores scores scores';
+    grid-template-columns: 0.1fr 1fr 1fr;
+    background-color: rgb(23, 64, 112);
+    min-width: 300px;
+}
+
+#ld-title {
+    grid-area: ld-title;
+    background-color: rgb(36, 94, 160);
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    padding: 10px;
+}
+
+#space-container {
+    visibility: hidden;
+}
+
+.text {
+    text-align: center;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    width: auto;
+    padding: 8px;
+    color: white;
+}
+
+.score-grid {
+    grid-area: scores;
+}
+
+.align-line {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1px;
+    grid-template-columns: 0.1fr 1fr 1fr;
+}
+
+.record-1 {
+    background-color: rgb(27, 121, 230);
+}
+
+.record-2 {
+    background-color: rgb(108, 168, 236);
+}
+
+.record-3 {
+    background-color: rgb(139, 185, 239);
+}
+
+.name {
+    padding-bottom: 4px;
+}
+
+.score {
+    padding-top: 4px;
+}

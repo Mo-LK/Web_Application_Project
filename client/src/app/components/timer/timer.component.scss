@@ -1,0 +1,19 @@
+.timer-container {
+    display: flex;
+    border: solid;
+    background-color: black;
+    border-radius: 20%;
+    justify-content: center;
+    text-align: center;
+    height: 70px;
+    width: 150px;
+    line-height: 70px;
+    margin: 15px;
+}
+
+#timer-text {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 40px;
+    color: white;
+}

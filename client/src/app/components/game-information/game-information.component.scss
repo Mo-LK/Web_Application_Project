@@ -1,0 +1,23 @@
+#info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: dodgerblue;
+    border: 2px dashed aqua;
+    border-radius: 10px;
+    padding: 10px;
+    width: fit-content;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 5px;
+    color: aqua;
+}
+
+.description {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 5px;
+}

@@ -1,0 +1,8 @@
+<div class="width-20">
+    <div mat-dialog-title class="title">{{this.gameService.gameIsWon ? winMessage : loseMessage}}</div>
+    <mat-dialog-content *ngIf="isLeaderboardPosition()">Félicitations! Votre score vous mérite la position #{{this.gameService.leaderboardPosition}} dans le tableau des meilleurs temps du jeu <i>{{ this.gameService.gameData.gameTitle }}</i>.</mat-dialog-content>
+    <mat-dialog-actions class="button-container">
+        <button mat-raised-button mat-dialog-close (click)="this.gameService.abandonGame()">Quitter</button>
+        <button mat-raised-button mat-dialog-close *ngIf="this.gameService.isClassicMode" (click)="this.replay()">Revoir la partie</button>
+    </mat-dialog-actions>
+</div>

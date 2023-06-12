@@ -1,0 +1,71 @@
+.toolbox-container {
+  display: flex;
+  padding: 5px;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  border: 3px dashed aqua;
+}
+
+.version-history-container {
+  display: flex;
+  gap: 5px;
+}
+
+#color {
+  padding: 0px 2px;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+}
+
+.sizing-tool-container {
+  width: 100px;
+}
+
+.drawing-tools-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid rgba(255, 255, 255, 0.628);
+}
+
+.drawing-tool {
+  display: inline-block;
+  padding: 10px 20px;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.628);
+  color: #6892ee;
+  cursor: pointer;
+  transition: background 400ms cubic-bezier(0.25, 0.8, 0.25, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"]:checked + .drawing-tool {
+  background: none;
+  color: white;
+}
+
+input[type="radio"]:hover:not(:checked) + .drawing-tool {
+  background-color: white;
+}
+
+.undo-redo-buttons {
+  height: 60px;
+  border-radius: 100%;
+  border: 2px solid #000000;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+  background-color: rgba(255, 255, 255, 0.628);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.undo-redo-buttons:enabled:hover {
+  background-color: white;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

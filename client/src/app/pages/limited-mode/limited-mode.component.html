@@ -1,0 +1,22 @@
+<div class="selection-background main-container">
+    <header class="header">
+        <button mat-raised-button class="btn-selection home" routerLink="/home" title="Accueil"><mat-icon [inline]="true">home</mat-icon></button>
+        <span id="title-selection-page">Menu de sélection</span>
+    </header>
+    <div *ngIf="this.cardChangeService.isLimitedEnable; then showCards; else noCards"></div>
+        <ng-template #showCards>
+            <div class="btn-main-container center">
+                <button mat-raised-button class="btn-main" *ngIf="this.cardChangeService.isLimitedEnable && !this.gameService.lobbyWaitingVisibility" (click)="this.cardChangeService.loadGame({isSolo: true, isClassic: false})">Joindre SOLO</button>
+                <button mat-raised-button class="btn-main" *ngIf="this.cardChangeService.isLimitedEnable && !this.gameService.lobbyWaitingVisibility" (click)="this.cardChangeService.loadGame({isSolo: false, isClassic: false})">{{ isMultiplayerState() ? 'Joindre COOP' : 'Créer COOP'}}</button>
+                <div class="loading" *ngIf="this.gameService.lobbyWaitingVisibility">
+                    <mat-spinner [diameter]="70"></mat-spinner>
+                    <span>Chargement du jeu ...</span>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template #noCards>
+            <div class="no-content-container">
+                <div class="no-content"><mat-icon [inline]="true" class="error-icon">error</mat-icon>Aucune carte disponible pour jouer !</div>
+            </div>
+        </ng-template>
+</div>

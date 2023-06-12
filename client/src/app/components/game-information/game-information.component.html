@@ -1,0 +1,7 @@
+<div id="info">
+    <div class="title">{{gameTitle}}</div>
+    <div class="description">Mode : {{gameMode}}</div>
+    <div class="description">Différences restantes : {{differenceAmount}}</div>
+    <div *ngIf="gainValue !== -1" class="description">Temps gagné pour un succès : {{gainValue}} secondes</div>
+    <div *ngIf="penaltyValue !== -1" class="description">Temps perdu pour un indice : {{penaltyValue}} secondes</div>
+</div>

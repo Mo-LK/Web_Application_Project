@@ -1,0 +1,41 @@
+<div *ngIf="isConfigMode; then configuration; else classic"></div>
+    <ng-template #configuration>
+        <div class="config">
+            <div id="options">
+                <app-game-constants class="btn-config-container constants"></app-game-constants>
+                <div class="btn-config-container">
+                    <label class="title">Actions globales</label>
+                    <button mat-raised-button class="btn-config" id="create" routerLink="/gameCreation" title="Créer une nouvelle fiche">Créer</button>
+                    <button mat-raised-button class="btn-config" id="history" (click)="openMatchHistory()" title="Consulter l'historique des parties">Voir historique</button>
+                    <button mat-raised-button class="btn-config" (click)="this.openResetAllStatsConfirmation()" [disabled]="!this.cardChangeService.areCardsToPlay" title="Réinitialiser les classements">Réinitialiser temps</button>
+                    <button mat-raised-button class="btn-config" (click)="this.openDeleteAllCardsConfirmation()" [disabled]="!this.cardChangeService.areCardsToPlay" title="Supprimer toutes les fiches">Supprimer</button>
+                </div>
+            </div>
+            
+            <div *ngIf="this.cardChangeService.areCardsToPlay; then showCards; else noCards"></div>
+                <ng-template #showCards>
+                    <div id="cards-container">
+                        <app-card *ngFor="let card of cardDataArray; let i = index" class="app-card" [viewMode]="viewMode" [card]="card" (playEvent)="cardChangeService.loadGame({isSolo: true, isClassic: true}, i)" (multiplayerEvent)="this.cardChangeService.loadGame({isSolo: false, isClassic: true}, i)"> </app-card>
+                    </div>
+                </ng-template>
+                <ng-template #noCards>
+                    <div class="no-content-container">
+                        <div class="no-content"><mat-icon [inline]="true" class="error-icon">error</mat-icon>Aucune carte disponible pour jouer !</div>
+                    </div>
+                </ng-template>
+        </div>
+        
+    </ng-template>
+<ng-template #classic>
+    <div *ngIf="this.cardChangeService.areCardsToPlay; then showCards; else noCards"></div>
+            <ng-template #showCards>
+                <div id="cards-container">                    
+                    <app-card *ngFor="let card of cardDataArray; let i = index" class="app-card" [card]="card" (playEvent)="cardChangeService.loadGame({isSolo: true, isClassic: true}, i)" (multiplayerEvent)="this.cardChangeService.loadGame({isSolo: false, isClassic: true}, i)"> </app-card>
+                </div>
+            </ng-template>
+            <ng-template #noCards>
+                <div class="no-content-container">
+                    <div class="no-content"><mat-icon [inline]="true" class="error-icon">error</mat-icon>Aucune carte disponible pour jouer !</div>
+                </div>
+            </ng-template>
+</ng-template>

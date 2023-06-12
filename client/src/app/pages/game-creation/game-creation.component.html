@@ -1,0 +1,49 @@
+<div class="game-creation-page-container">
+    <header class="header">
+        <button mat-raised-button class="buttons home" routerLink="/config" title="Retourner au menu de configuration"><mat-icon [inline]="true">arrow_back</mat-icon></button>
+        <span id="title-creation-page">Création de jeu</span>
+        <button mat-raised-button class="buttons submit" (click)="submit()">Valider la fiche</button>
+    </header>
+    <div class="input-holder">
+        <div class="image-upload">
+            <input #inputDoubleImage id="inputDoubleImage" type="file" accept="image/bmp" (change)="this.sendImageToChildren($event.target)"/>
+            <label mat-raised-button for="inputDoubleImage" class="upload-container" title="Téléverser une image">
+                <div>Image BMP 640 x 480 pixels</div>
+                <img src="assets/save-icon.png" class="file-upload"/>
+            </label>
+            <p id="textErrorMessage">{{errorMessage}}</p>
+        </div>
+        <mat-form-field appearance="fill">
+            <mat-label>Rayon d'élargissement</mat-label>
+            <select #enlargementRadius matNativeControl required>
+                <option value="0">0 pixel</option>
+                <option value="3" selected="selected">3 pixels</option>
+                <option value="9">9 pixels</option>
+                <option value="15">15 pixels</option>
+            </select>
+        </mat-form-field>
+    </div>
+    <app-tool-box class="tool-box"></app-tool-box>   
+    <div (mouseup)="drawingVerification()">
+        <mat-grid-list cols="2" rowHeight="1:1">
+            <mat-grid-tile class="format-image">
+                <div class="image-preview">
+                    <p class="canva-title">Originale</p>
+                    <app-card-creation #originalCard [image]="this.image" [isOriginal]="true"></app-card-creation>
+                    <app-card-drawing #originalDrawing [name]="this.original"></app-card-drawing>   
+                </div>
+            </mat-grid-tile>
+            
+            <img src="assets/exhange-icon.png" (click)="this.drawingService.exchangeDrawingToolBox()" class="exchange-button" title="Interchanger les fiches">
+
+            <mat-grid-tile class="format-image">
+                <div class="image-preview">
+                    <p class="canva-title">Modifiée</p>
+                    <app-card-creation  #modifiedCard [image]="this.image" [isOriginal]="false"></app-card-creation>
+                    <app-card-drawing #modifiedDrawing [name]="this.modified"></app-card-drawing>   
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+</div>
+    

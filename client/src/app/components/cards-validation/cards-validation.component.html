@@ -1,0 +1,26 @@
+<div class="container">
+    <div mat-dialog-title>Vérification du nouveau jeu <i>{{ gameName }}</i></div>
+    <div mat-dialog-content class="content">
+        <div *ngIf="isEnoughDifferences() then ok; else notOk"></div>
+        <ng-template #ok>
+            <h3>Nombre de différences détectées : {{ numberOfDifferences }}</h3>
+        </ng-template>
+        <ng-template #notOk>
+            <div class="error-container">
+                <h3 class="difference-count">Nombre de différences détectées : {{ numberOfDifferences }}</h3>
+                <mat-hint class="mat-error">Le nombre de différences doit être entre 3 et 9</mat-hint>
+            </div>
+        </ng-template>
+        <h3>Niveau de difficulté : {{difficulty}}</h3>
+        <mat-form-field appearance="outline">
+            <mat-label>Nom du jeu</mat-label>
+            <input matInput [(ngModel)]="gameName" required (keyup.enter)="save()" placeholder="Spot the TTD">
+            <mat-hint class="mat-error" *ngIf="!isTitleValid()">Le nom du jeu doit être entre {{ minLengthName }} et {{ maxLengthName }} caractères</mat-hint>
+        </mat-form-field>
+        <img id="differencesImage" [src]="differencesImageBase64" alt="Image de différences" />
+    </div>
+    <div mat-dialog-actions>
+        <button mat-raised-button mat-dialog-close>Annuler</button>
+        <button mat-raised-button mat-dialog-close (click)="save()" [disabled]="!this.isEnoughDifferences() || !this.isTitleValid()">Sauvegarder</button>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="canva-container">
+  <canvas #canvasCard width="640" height="480"></canvas>
+  <div class="button-container">
+    <div class="image-upload">
+      <label for="{{this.isOriginal ? 'inputOriginalImage' : 'inputModifiedImage'}}" class="upload-label-container" title="Téléverser une image BMP 640 x 480 pixels">
+        <img src="assets/save-icon.png" class="file-upload"/>
+      </label>
+      <input id="{{this.isOriginal ? 'inputOriginalImage' : 'inputModifiedImage'}}" class="file-input"  type="file" accept="image/bmp" (change)="this.displayImage($event.target)" />
+    </div>
+    <button mat-raised-button color="warn" id="buttonReset" class="button" (click)="clearCanvas()">Vider l'image</button>
+  </div>
+  <p #errorMessage > {{textErrorMessage}}</p>
+</div>
+ 

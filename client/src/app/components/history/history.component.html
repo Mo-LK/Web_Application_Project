@@ -1,0 +1,47 @@
+<div *ngIf="confirmationPrompt; then prompt; else history"></div>
+<ng-template #prompt>
+    <div mat-dialog-title class="title">Suppression de l'historique des parties</div>
+    <mat-dialog-content>Êtes-vous certain de vouloir supprimer l'historique des parties?</mat-dialog-content>
+    <mat-dialog-actions class="button-container">
+        <button mat-raised-button (click)="back()">Retour</button>
+        <button *ngIf="!emptyHistory;" mat-raised-button (click)="clearMatchHistory()">Confirmer</button>
+    </mat-dialog-actions>
+</ng-template>
+<ng-template #history>
+    <div class="width-20">
+        <div mat-dialog-title class="title">Historique des parties</div>
+        <div *ngIf="emptyHistory; then empty; else notEmpty"></div>
+        <ng-template #empty>
+            <mat-dialog-content>Aucune partie n'a été jouée</mat-dialog-content>
+        </ng-template>
+        <ng-template #notEmpty>
+            <mat-dialog-content>
+                <div *ngFor="let gameHistory of historyService.history">
+                    <div class="history">
+                        <p>Date: {{gameHistory.dateStarted}}</p> 
+                        <p>Heure: {{gameHistory.timeStarted}}</p> 
+                        <p>Durée: {{gameHistory.timeLength}} s</p>
+                        <p>Mode de jeu: {{gameHistory.gameType}}</p>
+                        <p> Joueur 1:
+                            <span [ngClass]="{'winner': establishWinner(gameHistory, true, gameHistory.gameType === 'Temps limité'), 'surrendered': establishSurrender(gameHistory, true)}"> 
+                                {{gameHistory.firstPlayer}}
+                            </span>
+                        </p>
+                        <p *ngIf="gameHistory.secondPlayer !== ' '">
+                            Joueur 2: 
+                            <span [ngClass]="{'winner': establishWinner(gameHistory, false, gameHistory.gameType === 'Temps limité'), 'surrendered': establishSurrender(gameHistory, false)}">
+                            {{gameHistory.secondPlayer}}
+                            </span>
+                        </p>   
+                    </div>
+                </div>
+            </mat-dialog-content>
+        </ng-template>
+        <mat-dialog-actions class="button-container">
+            <button mat-raised-button mat-dialog-close>Fermer</button>
+            <button *ngIf="!emptyHistory;" mat-raised-button class="btn-config" (click)="promptConfirmation()">Supprimer l'historique</button>
+        </mat-dialog-actions>
+    </div>
+</ng-template>
+    
+

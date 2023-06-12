@@ -1,0 +1,16 @@
+<div class="clue-widget">
+    <div *ngIf="this.clueService.clueRemaining > 0; then clues; else clueless"></div>
+            <ng-template #clues>
+                <div class="clues-container">
+                    <img *ngIf="this.clueService.clueRemaining > 0" src="assets/clue-icon.png">
+                    <img *ngIf="this.clueService.clueRemaining > 1" src="assets/clue-icon.png">
+                    <img *ngIf="this.clueService.clueRemaining > 2" src="assets/clue-icon.png">
+                </div>
+            </ng-template>
+            <ng-template #clueless>
+                <div class="clueless">
+                    <div class="error-text">Indices épuisés!</div>
+                </div>
+            </ng-template>
+    <button mat-raised-button class="btn margin" [disabled]="!clueService.buttonIsEnable || this.clueService.clueRemaining <= 0" (click)="this.clueService.sendClueEvent()">Demander un indice</button>
+</div>

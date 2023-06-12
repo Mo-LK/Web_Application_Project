@@ -1,0 +1,10 @@
+<div class="grid-container">
+    <div class="canva-container">
+        <canvas class="canvas" #canvasModified (click)="gameService.validateDifference($event)" [attr.width]="width" [attr.height]="height"></canvas>
+    </div>
+    <div class="canva-container">
+        <canvas class="canvas" #canvasOriginal (click)="gameService.validateDifference($event)" [attr.width]="width" [attr.height]="height"></canvas>
+    </div>
+</div>
+
+<span #error id="error" *ngIf="this.gameService.errorVisibility" [ngStyle]="{left: this.gameService.errorPosition.x.toString() + 'px', top: this.gameService.errorPosition.y.toString() + 'px'}"> ERREUR </span>

@@ -1,0 +1,112 @@
+#cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 85vh;
+    row-gap: 10px;
+    column-gap: 10px;
+    margin-left: 5px;
+    margin-right: 10px;
+}
+  
+.config {
+    display: grid;
+    grid-template-areas:
+        'options cards-container'
+        'options cards-container';
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.app-card {
+    border: double white 5px;
+    display: flex;
+    justify-content: center;
+    min-height: 440px;
+    max-height: 37.5vh;
+    border-radius: 25px;
+    background-color: #1e00ff30;
+}
+
+#options {
+    display: flex;
+    max-width: 20vw;
+    flex-direction: column;
+    height: auto;
+}
+
+.btn-config-container {
+    background-color: #0000003e;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 80%;
+    height: 40%;
+    border-radius: 25px;
+    border: 2px solid white;
+    min-height: 425px;
+}
+
+.constants {
+    background-color: rgb(0 213 255 / 42%);
+}
+
+.btn-config {
+    border-radius: 25px;
+    border: 2px solid #000000;
+    width: 80%;
+    height: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.628);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-config:enabled:hover {
+    background-color: white;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-config-container button:enabled:hover {
+    background-color: rgba(255, 0, 0, 0.628);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-config-container #history:hover {
+    background-color: white;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#create {
+    background-color: lime;
+}
+
+.no-content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 87vh;
+    justify-self: baseline;
+}
+
+.no-content {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    display: flex;
+    border: 5px double white;
+    border-radius: 20px;
+    padding: 2em;
+    background-color: rgba(30, 0, 255, 0.1882352941);
+}
+
+.error-icon {
+    font-size: smaller;
+}

@@ -1,0 +1,26 @@
+<div class="selection-background">
+    <div class="dots">
+        <header class="header">
+            <button mat-raised-button class="btn-selection home" routerLink="/home" title="Accueil"><mat-icon [inline]="true">home</mat-icon></button>
+            <span id="title-selection-page">Menu de sélection</span>
+        </header>
+
+        <div id="container-left-column">
+            <app-selection-area #selectionArea [viewMode]="viewMode" [cardDataArray]="this.cardChangeService.getPageData()"> </app-selection-area>
+        </div>
+
+        <footer class="footer">
+            <div></div>
+            <div class="footer-buttons-container">
+                <div>
+                    <button *ngIf="this.cardChangeService.previousPageButtonVisibility" class="btn-selection prev" (click)="this.cardChangeService.changePage(false);" title="Précédent"><mat-icon [inline]="true">arrow_back</mat-icon></button>
+                </div>
+                <div>
+                    <button *ngIf="this.cardChangeService.nextPageButtonVisibility" class="btn-selection" (click)="this.cardChangeService.changePage(true);" title="Suivant"><mat-icon [inline]="true">arrow_forward</mat-icon></button>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

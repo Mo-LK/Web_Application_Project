@@ -1,0 +1,15 @@
+<div class="container">
+    <div mat-dialog-title><i>{{ data.game.gameTitle }}</i> en {{ data.game.secondMode }}</div>
+    <div mat-dialog-content class="content">
+        <mat-form-field appearance="outline">
+            <mat-label>Nom du joueur</mat-label>
+            <input matInput [(ngModel)]="playerName" required (keyup.enter)="onSubmit()" placeholder="{{placeholderName}}">
+            <mat-error>Le nom du joueur est requis</mat-error>
+            <mat-hint class="mat-error" *ngIf="playerName.length > maxLengthName">Le nom du joueur ne peut avoir plus de {{ maxLengthName }} caractères</mat-hint>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-raised-button mat-dialog-close>Annuler</button>
+        <button mat-raised-button (click)="onSubmit()" [disabled]="!isValidPlayerName()">C'est parti!</button>
+    </div>
+</div>

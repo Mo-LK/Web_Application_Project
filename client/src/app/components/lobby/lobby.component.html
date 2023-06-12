@@ -1,0 +1,19 @@
+<div class="lobby-container">
+    <p mat-dialog-title>Salle d'attente</p>
+
+    <div *ngIf="this.lobbyService.isGameCreator; then gameCreator; else gameJoiner"></div>
+        <ng-template #gameCreator>
+            <span class="title"> En attente d'autres joueurs... </span>
+            <mat-dialog-content #joinContainer class="joining-list-container">
+                <app-player-join *ngFor="let lobby of this.lobbyService.playerQueue; let i = index" [numberOfJoin]="i" [playerName]="lobby.secondPlayerName!"></app-player-join>
+            </mat-dialog-content>
+        </ng-template>
+        <ng-template #gameJoiner>
+            <span class="title"> En attente d'être accepté... </span>
+            <mat-spinner [diameter]="50"></mat-spinner>
+        </ng-template>
+
+    <mat-dialog-actions>
+        <button mat-button mat-dialog-close>Abandonner</button>
+    </mat-dialog-actions>
+</div>

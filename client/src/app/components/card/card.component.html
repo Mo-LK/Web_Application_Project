@@ -1,0 +1,27 @@
+<div class="card-component-grid">
+    <div class="text title">{{ this.card.title }}</div>
+    <div class="text">Niveau : {{ this.card.difficultyLevel }} </div>    
+    <img id="card" [src]="this.imageSource" alt="IMAGE">
+    <app-leaderboard #leaderboard id="leaderboard" [stats]="this.card.stats"></app-leaderboard>
+    <div *ngIf="isConfigMode; then configuration; else classic"></div>
+        <ng-template #configuration>
+            <div class="buttons-container">
+                <div></div>
+                <button mat-raised-button class="btn-card" id="delete" (click)="this.cardChangeService.cardDeletion(this.cardId)" title="Supprimer la fiche {{ this.card.title }}">Supprimer</button>
+            </div>
+            <div class="buttons-container">
+                <button mat-raised-button class="btn-card" id="restore" (click)="this.cardChangeService.cardStatsReset(this.cardId)" title="Réinitialiser le classement de la fiche {{ this.card.title }}">Réinitialiser</button>
+                <div></div>
+            </div>
+        </ng-template>
+        <ng-template #classic>
+            <div class="buttons-container">
+                <div></div>
+                <button mat-raised-button id="playButton" class="btn-card" (click)="this.playEvent.emit()">Jouer</button>
+            </div>
+            <div class="buttons-container">
+                <button #multiplayerButton mat-raised-button id="joinButton" class="btn-card" (click)="this.multiplayerEvent.emit(!isMultiplayerState())">{{ isMultiplayerState() ? 'Joindre' : 'Créer'}}</button>
+                <div></div>
+            </div>
+        </ng-template>
+</div>

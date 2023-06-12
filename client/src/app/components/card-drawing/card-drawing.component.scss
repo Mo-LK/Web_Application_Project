@@ -1,0 +1,31 @@
+.button-container{
+    display: flex;
+    flex-direction: row;
+    height: 15%;
+    gap: 2%;
+    width: 60%;
+    margin-left: 40%;
+}
+
+.button {
+    border-radius: 25px;
+    border: 2px solid #000000;
+    width: 180px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 10px;
+    margin-top: 10px;
+    height: 80%;
+}
+
+#duplicate-button {
+    background-color: rgb(236, 221, 65);
+}
+
+.canva-container {
+    position: absolute;
+    width: 640px;
+    height: 480px;
+}

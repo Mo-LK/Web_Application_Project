@@ -1,0 +1,26 @@
+<div class="general main-background" [ngClass]="{'special-background' : gameService.selfName === easterEggCode}">
+    <div class="main-container">
+        <div class="header-area-container" [ngClass]="{'unclickable': this.gameService.videoGameControlsAreVisible}">
+            <app-difference-count class="self" [playerName] = "gameService.isClassicMode || !gameService.isMultiplayer ? gameService.selfName : gameService.selfName + ' ' + gameService.opponentName" [differenceFoundNumber]="gameService.selfDiffCount"></app-difference-count>
+            <div class="game-details-container">
+                <app-game-information [gameTitle]="this.gameService.gameData.gameTitle" [differenceAmount]="this.gameService.gameData.differences.length" [gameMode]="this.gameService.gameData.firstMode" [penaltyValue]="this.gameService.isMultiplayer ? -1 : this.gameService.gameConstants.penalty" [gainValue]="this.gameService.isClassicMode ? -1 : this.gameService.gameConstants.gain"></app-game-information>
+                <app-timer></app-timer>
+            </div>
+            <app-difference-count *ngIf="gameService.isMultiplayer && gameService.isClassicMode" class="opponent" [playerName] = "gameService.opponentName" [differenceFoundNumber]="gameService.opponentDiffCount"></app-difference-count>
+        </div>
+        <div class="play-area-container">
+            <app-play-area [ngClass]="{'unclickable': this.gameService.videoGameControlsAreVisible}" [cardId]="this.gameService.gameData.id" tabindex="0"></app-play-area>
+            <div *ngIf="this.gameService.videoGameControlsAreVisible; then videoControls; else clues"></div>
+                <ng-template #videoControls>
+                    <app-video-replay-control *ngIf="!this.gameService.getEndPopUpVisibility()" class="replay"></app-video-replay-control>
+                </ng-template>
+                <ng-template #clues>
+                    <app-clue-indicator *ngIf="!this.gameService.isMultiplayer && !this.gameService.getEndPopUpVisibility()" class="clues"></app-clue-indicator>
+                </ng-template>
+        </div>
+        <div class="footer-area-container">
+            <button *ngIf="!this.gameService.videoGameControlsAreVisible && !this.gameService.getEndPopUpVisibility()" mat-raised-button class="btn" (click)="this.openAbandonConfirmation()">Abandonner la partie</button>
+        </div>
+    </div>
+    <app-chat-box class="chatbox-container" [deleteMessage]="this.gameService.deleteMessage" [ngClass]="{'unclickable': this.gameService.videoGameControlsAreVisible}"></app-chat-box>
+</div>

@@ -1,0 +1,124 @@
+.container {
+    min-height: 100vh;
+    height: auto;
+}
+
+.justified {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo {
+    width: 100%;
+    height: 100%;
+    max-width: 500px;
+    max-height: 400px;
+    margin-bottom: -5em;
+    
+}
+
+.basic-background {
+    background: linear-gradient(315deg, #e1e1ff, 50%, rgb(39, 119, 255));
+}
+
+.cool-background {
+    background-image: url("../../../assets/gameBackground.svg");
+    animation: background-move 8s linear infinite;
+    @keyframes background-move {
+        0% {
+            background-position: 70% 70%;
+        }
+        50% {
+            background-position: 0% 0%;
+        }
+        100% {
+            background-position: 70% 70%;
+        }
+    }
+}
+
+.zoom-background {
+    background: radial-gradient(circle at center, rgb(255, 21, 103),1%, #000000fa);
+    background-position: center;
+    animation: background-move1 10s ease-in-out infinite;
+    @keyframes background-move1 {
+        0% {
+            background-size: 100%;
+        }
+        50% {
+            background-size: 500%;
+        }
+        100% {
+            background-size: 100%;
+        }
+    }
+}
+
+.split-background {
+    background: radial-gradient(circle at center, rgb(255, 21, 103),30%, #000000fa);
+    background-position: center;
+    animation: background-move1 5s ease-in-out 1;
+    @keyframes background-move1 {
+        0% {
+            background-size: 0%;
+        }
+        100% {
+            background-size: 100%;
+        }
+    }
+}
+
+.team-name {
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+    color: black;
+}
+
+.header-item {
+    justify-content: center;
+    text-align: center;
+}
+
+.footer-item {
+    text-align: center;
+}
+
+.footer-item p :nth-child(even) {
+    color: white;
+}
+
+.footer-item p :nth-child(odd) {
+    color: #2a5ddb;
+}
+
+.btn-main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 30%;
+    max-width: 400px;
+    height: 300px;
+    border-radius: 25px;
+    border: 2px solid #ffffff;
+}
+
+.btn-main {
+    border-radius: 25px;
+    border: 2px solid #000000;
+    width: 80%;
+    height: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.628);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-main:hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

@@ -1,0 +1,86 @@
+.config-background {
+    background: linear-gradient(90deg, rgb(39, 119, 255), 55%, white);
+    min-height: 100vh;
+    height: auto;
+}
+
+.column {
+    flex: 1;
+}
+
+.row-container {
+    display: grid;
+}
+
+.header {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+}
+
+#title-config-page {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+}
+
+.btn-selection {
+    border-radius: 25px;
+    border: 2px solid black;
+    width: 80%;
+    height: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: rgba(255, 255, 255, 0.628);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.footer-buttons-container .btn-selection, .header .home {
+    border-radius: 5px;
+    border-color: grey;
+    width: fit-content;
+    height: 50px;
+    font-size: 50px;
+    color: aqua;
+    background-color: black;
+}
+
+.home {
+    place-self: start;
+}
+
+.btn-selection:hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.footer {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+}
+
+.footer-buttons-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.prev {
+    place-self: end;
+    float: right;
+}
+
+.next {
+    place-self: start;
+    float: left;
+}
+
+#previous {
+    visibility: hidden;
+}
+
+#next {
+    visibility: hidden;
+}

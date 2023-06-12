@@ -1,0 +1,2 @@
+export const DEFAULT_CANVAS_WIDTH = 640;
+export const DEFAULT_CANVAS_HEIGHT = 480;

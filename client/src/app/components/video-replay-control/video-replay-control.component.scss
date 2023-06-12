@@ -1,0 +1,61 @@
+.replay-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  border: double white 5px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 10px;
+}
+
+.btn {
+  height: 60px;
+  border-radius: 25px;
+  border: 2px solid #000000;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+  background-color: rgba(255, 255, 255, 0.628);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.current {
+  background-color: rgb(0 0 0 / 31%);
+}
+
+.btn:not(.current):hover {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.speed-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid rgba(255, 255, 255, 0.628);
+  margin-bottom: 10px;
+}
+
+.speeds {
+  display: inline-block;
+  padding: 10px 20px;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.628);
+  color: #6892ee;
+  cursor: pointer;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"]:checked + .speeds {
+  background: none;
+  color: white;
+}

@@ -1,0 +1,7 @@
+<div class="join-container">
+    <div class="player-name">{{ this.playerName }} </div>
+    <div class="button-container">
+        <button mat-raised-button class="accept" title="Accepter" (click)="this.lobbyService.acceptPlayer(this.numberOfJoin)"><mat-icon>check_circle_outline</mat-icon></button>
+        <button mat-raised-button class="decline" title="Refuser" (click)="this.lobbyService.denyPlayer(this.numberOfJoin)"><mat-icon>highlight_off</mat-icon></button>
+    </div>
+</div>

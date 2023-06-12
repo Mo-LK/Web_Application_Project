@@ -1,0 +1,7 @@
+<div class="canva-container">
+    <canvas #canvasDrawing class="canvas-draw"  width="640" height="480" (mousedown)="activate($event)" (mousemove)="draw($event)"></canvas>
+    <div class="button-container">
+        <button mat-raised-button color="warn" class="button" title="Effacer le dessin" (click)="actionClearCanvas()">Réinitialiser dessin</button>
+        <button mat-raised-button class="button" id="duplicate-button" title="Appliquer le dessin sur le canvas opposé" (click)=" this.drawingService.duplicateDrawing(this.name)">Dupliquer dessin</button>
+    </div>
+</div>

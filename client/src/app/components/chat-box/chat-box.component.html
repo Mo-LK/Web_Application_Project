@@ -1,0 +1,20 @@
+<div class="chat-container">
+    <div class="chat-header">
+      <div>{{ this.title }}</div>
+    </div>
+    <div class="chat-box-body">
+      <div #chatLogs class="chat-logs">
+           <div *ngFor="let chat of this.messageService.getMessages()" class="chat-bubble" [ngClass]="this.messageService.stringValueOfChatEntryType(chat.type)" >
+           <div *ngIf="chat.type === chatEntryType.GLOBAL || chat.type === chatEntryType.EVENT" class="chat">{{chat.timestamp + ' - ' + chat.message}}</div>
+           <div *ngIf="chat.type !== chatEntryType.GLOBAL && chat.type !== chatEntryType.EVENT" class="chat">{{chat.message}}</div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="gameService.isMultiplayer" class="chat-footer">
+      <input #messageInput [(ngModel)]="message" class="message-input" type="text" placeholder="Entrez votre message..." (ngModelChange)="adjustCounterAndSendBtn()" (focus)="inputSelected()" (blur)="inputUnselected()">
+      <div class="sending">
+        <button #sendBtn class="send-btn disabled" (click)="this.send()"><mat-icon>send</mat-icon></button>
+        <div #counter class="counter">{{ message.length }}/{{ chatLimit }}</div>
+      </div>
+    </div>
+</div>

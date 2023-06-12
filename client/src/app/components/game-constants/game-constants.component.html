@@ -1,0 +1,23 @@
+<div class="title">Constantes de jeu</div>
+
+<mat-form-field class="inputs" appearance="outline" title="{{ initialDescription }}">
+    <mat-label class="bold">Temps initial (s)</mat-label>
+    <input #initial required class="text" matInput type="number" [(ngModel)]="inputValidationService.constants.initial" min="{{initialMinValue}}" max="{{initialMaxValue}}" (keypress)="inputValidationService.validateKeyPress($event)" (ngModelChange)="this.inputValidationService.verifyInitial(initialRef)">
+    <mat-error>{{ initialErrorMessage }}</mat-error>
+</mat-form-field>
+
+<mat-form-field class="inputs" appearance="outline" title="{{ penaltyDescription }}">
+    <mat-label class="bold">Temps pénalité (s)</mat-label>
+    <input #penalty required class="text" matInput type="number" [(ngModel)]="inputValidationService.constants.penalty" min="{{penaltyMinValue}}" max="{{penaltyMaxValue}}" (keypress)="inputValidationService.validateKeyPress($event)" (ngModelChange)="this.inputValidationService.verifyPenalty(penaltyRef)">
+    <mat-error>{{ penaltyErrorMessage }}</mat-error>
+</mat-form-field>
+
+<mat-form-field class="inputs" appearance="outline" title="{{ gainDescription }}">
+    <mat-label class="bold">Temps gagné (s)</mat-label>
+    <input #gain required class="text" matInput type="number" [(ngModel)]="inputValidationService.constants.gain" min="{{gainMinValue}}" max="{{gainMaxValue}}" (keypress)="inputValidationService.validateKeyPress($event)" (ngModelChange)="this.inputValidationService.verifyGain(gainRef)">
+    <mat-error>{{ gainErrorMessage }}</mat-error>
+</mat-form-field>
+<div class="btn-container">
+    <button mat-raised-button class="btn-config actions" title="{{ defaultValuesMessage }}" (click)="inputValidationService.resetValues()"><mat-icon>restore</mat-icon></button>
+    <button mat-raised-button class="btn-config accept actions" title="Appliquer les modifications" [disabled]="inputValidationService.constantsAreInvalid() || !inputValidationService.constantsAreDifferentFromPrevious()" (click)="inputValidationService.setConstants()"><mat-icon>check_circle_outline</mat-icon></button>
+</div>
